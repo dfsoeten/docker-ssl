@@ -3,8 +3,8 @@ version: '3'
 services:
   app:
     environment:
-      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
-      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+      - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
+      - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
     depends_on:
       - letsencrypt
     network_mode: bridge
