@@ -11,10 +11,8 @@ services:
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: nginx-proxy
-    build:
-      context: .
-      labels:
-        - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
     ports:
       - 80:80
       - 443:443
