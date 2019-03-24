@@ -21,7 +21,7 @@ services:
       - NGINX_HOST=$NGINX_HOST
     depends_on:
       - app
-    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
+    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/nginx.template > /etc/nginx/conf.d/nginx.conf && exec nginx -g 'daemon off;'"
 
   certbot:
     image: certbot/certbot
