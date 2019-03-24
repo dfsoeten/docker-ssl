@@ -8,6 +8,7 @@ services:
     depends_on:
       - nginx-proxy
       - letsencrypt
+    network_mode: bridge
 
   nginx-proxy:
     ports:
