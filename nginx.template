@@ -43,10 +43,10 @@ server {
     resolver 8.8.8.8;
 
     location / {
-        try_files $uri @node;
+        try_files $uri @app;
     }
 
-    location @node {
+    location @app {
         proxy_pass http://app:3000;
         add_header X-Frame-Options "SAMEORIGIN" always;
         add_header X-XSS-Protection "1; mode=block" always;
