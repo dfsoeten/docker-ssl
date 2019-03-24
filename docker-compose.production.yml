@@ -1,9 +1,27 @@
 version: '3'
 
 services:
+
+  app:
+    expose:
+      - 3000
+
   webserver:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - $NGINX_PORT:80
+      - 443:443
     volumes:
+      - ./public:/var/www/html
+      - ./nginx.template:/etc/nginx/conf.d/nginx.template # Overwrite default NGINX configuration
       - certbot-etc:/etc/letsencrypt/
+      - dhparam:/etc/ssl/certs
+    environment: # Pass NGINX_HOST to NGINX config
+      - NGINX_HOST=$NGINX_HOST
+    depends_on:
+      - app
+    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && exec nginx -g 'daemon off;'"
 
   certbot:
     image: certbot/certbot
@@ -21,5 +39,6 @@ services:
 volumes:
   certbot-etc:
   certbot-var:
+  dhparam:
 
 
