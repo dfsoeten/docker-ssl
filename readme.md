@@ -16,3 +16,7 @@ and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencry
 - Clone or download this repo
 - **Modify** the `.env` located in `.env.example` to match your environment.  
 - Run: `docker-compose -f docker-compose.yml -f docker-compose.production.yml up --build`
+
+## DHParam Generation
+By default the generation of the dhparam is disabled, the NGINX proxy will fall back to a default one. 
+To bypass this, run the command as documented [here](dhparam/README.md).
