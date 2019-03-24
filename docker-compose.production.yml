@@ -1,18 +1,13 @@
 version: '3'
 
 services:
-
   app:
-    expose:
-      - 3000
     environment:
-      - VIRTUAL_HOST=${NGINX_HOST}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
 
   nginx-proxy:
-    image: jwilder/nginx-proxy
-    container_name: nginx-proxy
     ports:
-      - 80:80
       - 443:443
     volumes:
       - conf:/etc/nginx/conf.d
@@ -20,7 +15,6 @@ services:
       - html:/usr/share/nginx/html
       - dhparam:/etc/nginx/dhparam
       - certs:/etc/nginx/certs:ro
-      - /var/run/docker.sock:/tmp/docker.sock:ro
     network_mode: bridge
 
   letsencrypt:

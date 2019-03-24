@@ -7,6 +7,22 @@ services:
       dockerfile: Dockerfile
     image: app
     container_name: app
+    expose:
+      - 3000
+    environment:
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - VIRTUAL_PORT=${VIRTUAL_PORT}
+      - ENABLE_IPV6=${IPV6}
     command: ['npm', 'run', 'start']
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - $NGINX_PROXY_PORT:80
+    environment:
+      - DHPARAM_GENERATION=${DHPARAM_GENERATION}
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
 
 
