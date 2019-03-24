@@ -8,6 +8,4 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN openssl dhparam -out /home/sammy/node_project/dhparam/dhparam-2048.pem 2048
-
 COPY . .
