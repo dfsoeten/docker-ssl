@@ -6,7 +6,6 @@ services:
       - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
       - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
     depends_on:
-      - nginx-proxy
       - letsencrypt
     network_mode: bridge
 
@@ -32,6 +31,8 @@ services:
       - html:/usr/share/nginx/html
       - certs:/etc/nginx/certs:rw
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      - nginx-proxy
     network_mode: bridge
 
 volumes:
