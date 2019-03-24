@@ -18,7 +18,6 @@ services:
       - NGINX_HOST=$NGINX_HOST
     depends_on:
       - app
-      - certbot
 
   certbot:
     image: certbot/certbot
@@ -27,6 +26,8 @@ services:
       - ./public:/var/www/html
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
+    depends_on:
+      - webserver
     command: certonly --webroot --webroot-path=/var/www/html --email $EMAIL --agree-tos --no-eff-email --staging -d $NGINX_HOST -d www.$NGINX_HOST
 
 
