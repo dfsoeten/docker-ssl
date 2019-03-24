@@ -1,6 +1,6 @@
 # Docker & Automatic SSL = 😍
 This is a simple working example how to automatically secure your 
-NodeJS / whatever application using a NGINX reversy proxy and certbot. 
+NodeJS / whatever application using a NGINX reverse proxy and [Certbot](https://certbot.eff.org/). 
 
 This makes use of the [automatic NGINX proxy](https://github.com/jwilder/nginx-proxy) 
 and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion).
