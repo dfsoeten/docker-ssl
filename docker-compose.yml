@@ -20,8 +20,6 @@ services:
     container_name: nginx-proxy
     ports:
       - $NGINX_PROXY_PORT:80
-    environment:
-      - DHPARAM_GENERATION=$DHPARAM_GENERATION
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
 
