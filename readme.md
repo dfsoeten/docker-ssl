@@ -16,8 +16,8 @@ and [letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencry
 - Clone or download this repo
 - Setup DNS on your VPS if you haven't already
 - **Modify** the `.env` located in `.env.example` to match your environment.  
-- Run: `docker-compose -f docker-compose.yml -f docker-compose.production.yml up --build` 
-<sub><sub>I would recommend [this](https://www.digitalocean.com/docs/marketplace/docker/) Digital Ocean droplet😉</sub></sub>
+- Run: `docker-compose -f docker-compose.yml -f docker-compose.production.yml up --build -d` 
+<sub><sub>I would recommend [this](https://www.digitalocean.com/docs/marketplace/docker/) Digital Ocean droplet 😉</sub></sub>
 
 ## DHParam Generation
 ~~By default the generation of the dhparam is disabled, the NGINX proxy will fall back to a default one. 
@@ -29,6 +29,11 @@ variable provided by the auto-NGINX proxy.
 If you only want to try out this demo, you could use the key provided. Otherwise it's highly recommended to
 follow the instructions [here](dhparam/README.md) and generate a new key.
 
+## Example
+![example][docs/example.png]
+
+
 ## Todo
 - Add support for all the available environment variable provided [here](https://github.com/jwilder/nginx-proxy/wiki/List-of-Supported-Environment-Variables).
 - Add comments to `.env` file 
+
