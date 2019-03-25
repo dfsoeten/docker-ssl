@@ -30,7 +30,7 @@ If you only want to try out this demo, you could use the key provided. Otherwise
 follow the instructions [here](dhparam/README.md) and generate a new key.
 
 ## Example
-![example][docs/example.png]
+![example](docs/example.png)
 
 
 ## Todo
